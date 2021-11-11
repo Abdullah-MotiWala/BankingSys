@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        h1,
+        h3 {
+            color: white;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto p-0">
+                <div class="card">
+
+                    <div class="login-box">
+                        <div class="login-snip">
+                            <input id="tab-1" onclick="radioCheck(id)" type="radio" name="tab" class="sign-in">
+                            <label for="tab-1" class="tab">Trasnfer Money</label>
+                            <input id="tab-2" onclick="radioCheck(id)" type="radio" name="tab" class="sign-up checked">
+                            <label for="tab-2" class="tab">Account</label>
+                            <div class="login-space">
+                                <form method="post" autocomplete="off" onsubmit="transfer(); return false">
+                                    <div class="login">
+                                        <div class="group">
+                                            <h1 style="text-transform: capitalize;" class="greet"></h1>
+                                        </div>
+                                        <div class="group">
+                                            <h3 class="balMsg"></h3>
+                                        </div>
+
+                                        <div class="group">
+                                            <p id="error-email" ></p>
+                                        </div>
+                                        <div class="group">
+                                            <label for="recieverEmail" class="label">Email</label>
+                                            <input id="recieverEmail" type="text" class="input" required
+                                                placeholder="Enter reciever's Email">
+                                        </div>
+                                        <div class="group">
+                                            <label for="inputAmount1" class="label">Amount</label>
+                                            <input type="number" class="input number" min="1" placeholder="Enter amount"
+                                                required id="inputAmount1">
+                                        </div>
+                                        <div class="group" style="text-align: center;">
+                                            <button type="submit" class="btn btn-primary"> TRANSFER </button>
+                                        </div>
+                                        <div class="group">
+                                            <button type="button" onclick="LogOut()"
+                                                class="btn button l">LogOut</button>
+                                        </div>
+                                        <div class="hr"></div>
+                                    </div>
+                                </form>
+                                <div class="sign-up-form">
+                                    <div class="group">
+                                        <h1 style="text-transform: capitalize;" class="greet"></h1>
+                                    </div>
+                                    <div class="group">
+                                        <h3 class="balMsg"></h3>
+                                    </div>
+                                    <div class="group">
+                                        <label for="inputAmount" class="label">Amount</label>
+                                        <input type="number" class="input number" min="1" placeholder="Enter amount"
+                                            id="inputAmount">
+                                    </div>
+                                    <div class="group" style="text-align: center;">
+                                        <button type="button" onclick="deposit()"
+                                            class="btn btn-primary">DEPOSIT</button>
+
+                                        <button type="button" onclick="withdraw()"
+                                            class="btn btn-primary">WITHDRAW</button>
+                                        <button type="button" onclick="openForm()" class="btn btn-primary">Delete
+                                            Account</button>
+                                    </div>
+                                    <div class="group">
+                                        <button type="button" onclick="LogOut()" class="btn button l">LogOut</button>
+                                    </div>
+                                    <div class="hr"></div>
+                                    <div class="form-popup" id="myForm">
+                                        <form method="POST" onsubmit="deleteAccount(); return false;" class="form-container">
+                                            <h1 style="color: black;">Delete Account</h1>
+                                            <p id="del-error" style="color:black"> </p>
+                                            <label for="psw"><b>Password</b></label>
+                                            <input type="password" id="del-pass" placeholder="Enter Password" name="psw" required>
+
+                                            <button type="submit" class="btn">Delete</button>
+                                            <button type="button" class="btn cancel"
+                                                onclick="closeForm()">Close</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script2.js"></script>
+</body>
+
+</html>
